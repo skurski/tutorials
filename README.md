@@ -1,2 +1,8 @@
 # tutorials
-Quick tutorials for various frameworks and not only...
+Quick-start tutorials:
+* Spring Core
+* Spring MVC
+* Hibernate
+* GWT
+* Gwt Resty
+* ...
