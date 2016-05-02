@@ -200,7 +200,34 @@
     * Preventing default actions
         * Use method event.preventDefault()
 
-
-
-
-
+#### Creating your own events
+* You have to define:
+    * The event class 
+    	* Extends GwtEvent class
+    * The various interfaces related to handling the event: the Handler and Has-Handler interfaces
+* Components can react to the same event without carrying references to each other. The main activities are first that the publisher fires an event. The event could contain data; any kind of data could be passed from publisher to subscriber. The subscriber in turn defines a handler that’s associated with the particular event. When a publisher fires an event on the EventBus, all of the registered subscribers to the same event will be invoked. The associated handler code will then be executed. Note that a publisher can also be a subscriber to events from itself or other components, and a subscriber can publish events that it’s responsible for.
+* The EventBus implementation is related to the Observer design pattern, in which the subject (EventBus) keeps a list of its observers (subscribing classes) and notifies them when state changes occur by invoking one of their methods (the registered handler).
+* The best approach is to use one event bus one per application and only for general event handling.
+* Types of event bus:
+    * All busses extend the abstract type EventBus
+        * SimpleEventBus,
+        * ResettableEventBus,
+        * CountingEventBus,
+        * RecordingEventBus.
+    * General mechanism:
+        * All subscribers and publishers have access to event bus, there are all observers
+        * We create event bus at entry point of our application, as well as other components (widgets)
+        * Subscribers add handlers to event bus:
+        ```
+        eventbus.addHandler(ChangeColorEvent.getType(),
+            new ChangeColorEventHandler() {
+                @Override
+                public void onChangeColorSent(ChangeColorEvent event) {
+                    String col = event.getColor();
+                    changeColor(col);
+                }
+            }
+	);   
+        ```
+        * Publishers fire the event as react to some user action
+            * this.eventbus.fireEvent(new ChangeColorEvent(color)); 
