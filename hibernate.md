@@ -1,5 +1,10 @@
 # Hibernate
 
+#### Hibernate Architecture
+![Hibernate architecture Text](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/images/architecture/data_access_layers.svg)
+![Hibernate class diagram Text](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/images/architecture/JPA_Hibernate.svg)
+  Images taken from Hibernate User Guide
+
 #### Hibernate Basics
 * __Hibernate Core__ - base service for persistence, it has a query language called HQL (Hibernate Query Language), as well as pro-
 grammatic query interfaces for Criteria and Example queries, can be used entirely independently. Contains native API, queries,
