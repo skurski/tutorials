@@ -86,5 +86,10 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
 * __property-based__ - when we mark getter with annotation hibernate assume access via getter
 * __@Access__ - the default strategy can be overridden by indicate access type: @Access(AccessType.FIELD)
 
-#### Identifiers
+#### Identifiers and value generation
+* Hibernate assume that corresponding database column is:
+  * __Unique__
+  * __Not null__
+  * __Immutable__
+* An identifier might be simple or composite
 
