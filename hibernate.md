@@ -82,14 +82,58 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
 * both abstract and concrete classes can be entities
 
 #### Access strategies
-* __field-based__ - when we mark field with annotation (ex: @Id) hibernate assume access via field
+Hibernate use access strategy based on where we put @Id annotation:
+* __field-based__ - when we mark field with annotation hibernate assume access via field
 * __property-based__ - when we mark getter with annotation hibernate assume access via getter
 * __@Access__ - the default strategy can be overridden by indicate access type: @Access(AccessType.FIELD)
+
+#### Fields
+Not all annotations are necessery, for example @Table, @Column, @JoinColumn are not obligatory. Hibernate assumes that all fields inside entity object are persistent fields and name of table, columns correspond to fields names.
 
 #### Identifiers and value generation
 * Hibernate assume that corresponding database column is:
   * __Unique__
   * __Not null__
   * __Immutable__
-* An identifier might be simple or composite
+* An identifier might be simple (single value) or composite (multiple values):
+  * __Simple identifiers__ - map to single basic attribute, annotated with __javax.persistence.Id__
+    * to support portability according to JPA only the following types should be used:
+      * any Java primitive and primitive wrapper
+      * java.lang.String, java.util.Date, java.sql.Date, java.math.BigDecimal, java.math.BigInteger
+    * Values for simple identifiers can be generated, to generate value we use __javax.persistence.GeneratedValue__ annotation
+  * __Composite identifiers__ - one or more persistent attributes, general rules
+    * must be represented by a "primary key class" using __javax.persistence.EmbeddedId__ or __javax.persistence.IdClass__ annotation
+      * composite field is annotated with __@EmbeddedId__
+      * primary key class is annotated with __@Embeddable__
+      * when we use __@IdClass__ we annotate entity class and indicate primary key class: @IdClass(Some.class)
+    * primary key class must be public with no-arg public constructor
+    * primary key class must be serializable
+    * primary key class must define equals and hashCode methods
+* __Generated identifier values__
+  * Hibernate supports number of different types to generate value but JPA portably defines that only integer types are advised
+  * is indicates using __javax.persistence.GeneratedValue__ annotation
+  * how value is generated specifies __javax.persistence.GenerationType__:
+    * AUTO (default) - Hibernate should chose appropriate generation strategy 
+    * IDENTITY - database identity columns will be used for primary key value generation
+      * the entity row we MUST be physically inserted before the identifier will be known
+      * hibernate is not able to JDBC batching for inserts of the entities
+    * SEQUENCE - database sequence should be used for obtaining primary key values
+    * TABLE - database table should be used for obtaining primary key values
 
+#### Associations
+* __@ManyToOne__
+  * equivalent in database e.g. foreign key
+  * establishes a relationship between a child entity and a parent
+  * when we update entity that contains @ManyToOne association hibernate will set the associated database foreign key column 
+* __@OneToMany__
+  * links a parent entity with one or more child entities
+  * if @OneToMany doesn't have mirroring @ManyToOne association on the child side than the @OneToMany is unidirectional, if there is a @ManyToOne than association is bidirectional
+  * undirectional association is possible if we have many to many relationship on the database and intermediate table between parent and child
+  * bidirectional association have one owning side (the child side), the other referred to as mappedBy side: @OneToMany(mappedBy=...)
+  * when bidirectional association is formed both sides must be synchronized, e.g. childs methods synchronize both ends when child element is added or removed
+* __@OneToOne__
+  *  can be unidirectional or bidirectional, unidirectional follows the database foreign key semantics, bidirectional adds @OneToOne to parent side too
+*  __@ManyToMany__ 
+  * requires a link table that joins two entities
+  * can be unidirectional or bidirectional
+  * similar to unidirectional @OneToMany associations, the link table is controlled by the owning side
