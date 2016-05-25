@@ -1,5 +1,6 @@
 # Git commands
 
+#### Managing
 * git init , creating empty repository
 * git clone <repository­url> , copy repository from remote repository url
 * git add , add files to commit
@@ -31,5 +32,9 @@ of remote branch
 * git branch ­m <newname> , rename current (active) branch
 * git rebase <remotename>/<branchname> , after git fetch <remotename> <branchname>
 * git log,  - list of commits (with commit_sha)
+
+#### Reset
+* git merge --abort, for new git version, undo last merge (if merge was succesful - MERGE_HEAD exists)
 * git reset --hard commit_sha, reset to given commit
 * git reset --merge ORIG_HEAD,  undo last merge
+* git reset --hard origin/master, reset to some remote tracking branch
