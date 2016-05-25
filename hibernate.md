@@ -137,3 +137,36 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
   * requires a link table that joins two entities
   * can be unidirectional or bidirectional
   * similar to unidirectional @OneToMany associations, the link table is controlled by the owning side
+
+#### Collections of entities
+* Entity collections can represent __@OneToMany__ and __@ManyToOne__ association
+* Collection of __Value Type__ must use the __@ElementCollection__ annotation
+* Collections not marked as @OneToMany, @ManyToOne, @ElementCollection require a custom __@Type__ annotation and the collection elements must be stored in a single database column
+* Categorizing by the underlying collection type:
+  * __bags__ - unordered lists
+    * can be unidirectional or bidirectional, 
+    * use the __List__ interface on java side but don't retain element order
+  * __indexed lists_ - ordered lists
+    * also use __List__ interface but to preserve element order one of 2 annotations needs to be used on the field:
+      * __@OrderBy__
+      * __@OrderColumn__ 
+  * __sets__ - use __Set__ interface
+  * __sorted sets__ - use __SortedSet__ interface
+    * __@SortNatural__ - indicate that Hibernate relies on the natural sorting order (Comparable implementation on java side)
+    * __@SortComparator__ - provide custom sorting logic e.g. @SortComparator(ReverseComparator.class)
+  * __maps__ - an entity can either be a map key or a map value, Hibernate allows using the following map keys:
+    * __@MapKeyColumn __ - the map key is a column in database table
+    * __@MapKey__ - the map key is the primary key or another property of the entity stored as a map entry value
+    * __@MapKeyEnumerated__ - the map key is an Enum of the target child entity
+    * __@MapKeyTemporal__ - the map key is a Date or a Calendar of the target child entity
+    * __@MapKeyJoinColumn__ - the map key is a an entity mapped as an assosation in the child entity that's stored as a map entry key
+  * __sorted maps__
+  * __arrays__ - hibernate doesn't support native database array types, java arrays are relevent for basic types only
+
+#### Natural Ids
+* __@NaturalId__ - We can inform Hibernate that entity has some meaningful property that can uniquely identify entity but its not an entity identifier (Primary Key)
+* Hibernate provides API for loading entity by its natural id
+* By default @NaturalId is immutable, we can allow entity attribute to change by using @NaturalId(mutable=true)
+
+#### Inheritance
+
