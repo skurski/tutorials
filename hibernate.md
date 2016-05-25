@@ -146,7 +146,7 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
   * __bags__ - unordered lists
     * can be unidirectional or bidirectional, 
     * use the __List__ interface on java side but don't retain element order
-  * __indexed lists_ - ordered lists
+  * __indexed lists__ - ordered lists
     * also use __List__ interface but to preserve element order one of 2 annotations needs to be used on the field:
       * __@OrderBy__
       * __@OrderColumn__ 
@@ -155,7 +155,7 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
     * __@SortNatural__ - indicate that Hibernate relies on the natural sorting order (Comparable implementation on java side)
     * __@SortComparator__ - provide custom sorting logic e.g. @SortComparator(ReverseComparator.class)
   * __maps__ - an entity can either be a map key or a map value, Hibernate allows using the following map keys:
-    * __@MapKeyColumn __ - the map key is a column in database table
+    * __@MapKeyColumn__ - the map key is a column in database table
     * __@MapKey__ - the map key is the primary key or another property of the entity stored as a map entry value
     * __@MapKeyEnumerated__ - the map key is an Enum of the target child entity
     * __@MapKeyTemporal__ - the map key is a Date or a Calendar of the target child entity
