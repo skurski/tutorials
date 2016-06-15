@@ -195,4 +195,22 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
 ===
 
 #### Inheritance
+* __@MappedSuperclass__ 
+  * inheritance is implemented in domain model without reflecting it in the database
+  * @MappedSuperclass exists only in the domain model, @Entity classes that extends superclass exists in database
+  * it is impossible to use polymorphic queries (fetching subclass by their base class) because base class don't exists in DB
+* __@Inheritance(strategy=InheritanceType.SINGLE_TABLE)__
+  *  single table is default inheritance strategy
+  *  maps all subclasses to only one database table
+  *  each class declares its own persistent properties
+  *  we use @Entity and @Inheritance annotations on root class (which exists in DB)
+*  __@Inheritance(strategy=InheritanceType.JOINED)__
+  *  table-per-sublass strategy, each subclass is mapped to its own table
+  *  we use @Entity and @Inheritance annotations on root class and extend this class
+*  __@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)__
+  * we map only the concrete classes of an inheritance hierarchy to tables    
 
+===
+
+#### Bootstrap
+* 
