@@ -4,6 +4,8 @@
 ![Hibernate architecture Text](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/images/architecture/data_access_layers.svg)
 Image taken from Hibernate User Guide: [Hibernate documentation](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/Hibernate_User_Guide.html)
 
+===
+
 #### Hibernate Basics
 * __Hibernate Core__ - base service for persistence, it has a query language called HQL (Hibernate Query Language), as well as pro-
 grammatic query interfaces for Criteria and Example queries, can be used entirely independently. Contains native API, queries,
@@ -15,6 +17,8 @@ Hibernate implements significant parts of JPA specification and can be use as JP
 additional features. To simply check out how it is used we can check the imports: if only the javax.persistence.* import is visible, 
 weâ€™re working inside the specification; if we also import org.hibernate.*, weâ€™re using native Hibernate functionality.
 
+===
+
 #### Hibernate development scenarios
 * __Top down__ - we first start with creation of Java classes, and then using __hbm2ddl__ (Hibernate tool) we generate the database schema
   ```
@@ -23,12 +27,16 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
     possible values: validate, update, create, create-drop
 * __Bottom up__ - we start with creating a database schema, then we extract metadata from the database and we use this metadata to generate XML mapping files (for example with __hbm2hbmxml__), then with __hbm2java__, the Hibernate mapping metadata is used to generate Java classes
 
+===
+
 #### Hibernate key interfaces
 ![Hibernate class diagram Text](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/images/architecture/JPA_Hibernate.svg)
 * __SessionFactory__ - a thread-safe, immutable object that acts as a factory for org.hibernate.Session instances. The __EntityManagerFactory__ is the JPA equivalent of a __SessionFactory__, both have basically the same SessionFactory implementation. Creating a __SessionFactory__ is very expensive so it should be only one instance for any given database. The __SessionFactory__ maintains services that Hibernate uses across all __Session__ such as second level caches, connection pools, transaction system integrations, etc.
 * __Session__ - it's single-threaded, nonshared object, it represent some particular unit of work with the database. In JPA nomenclature the __Session__ is represented by an __EntityManager__. Internally Session wraps a __JDBC__ java.sql.Connection and acts as a factory for __Transaction__ instances. It contains a queue of SQL statements that need to be synchronized with the database and map of managed persistance instances that are monitored by the Session. We can close session and the managed objects will work just fine but if we try to call the database we will get LazyInitializationException (because there is no Session object to manage the persistance instances).
 * __Transaction__ - it's single-threaded object, it is used to set transaction boundaries programmatically, JPA equivalent for this is __EntityTransaction__, (it's optional, we can use JDBC transaction instead for example)
 * __Query__ - database query can be written in Hibernate's own object oriented query language (HQL) or plain SQL
+
+===
 
 #### Hibernate types
 * Hibernate understands both Java and JDBC representations of application data, the Hibernate type is neither a Java type nor a SQL type, it provides information about both of these types and as a result is capable of mapping Java type to SQL type and backwards.
@@ -38,6 +46,8 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
     * __Embeddable types__ - in the past it was called __Components__ but JPA calls them embeddables, it is a composition of values, common example is an Address class that is a composition of street, city, zipcode, etc. Address class can be used inside Person class (Address class will be only on the Java side, on the database side Person table will have address data), we can look into Hibernate documentation: [Hibernate embeddable types](http://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/Hibernate_User_Guide.html#embeddables)
     * __Collection types__ - collections can contain almost any other Hibernate type, including: basic types, custom types, embeddable types and references to other entities
   * __Entity types__ - exists independently and define their own lifecycle, entities are classes which correlate to rows in a database table by using __unique identifier__, they are preceded with __@Entity__ annotation
+
+===
 
 #### Hibernate annotations
 * __@Basic__ - all basic types values, assumed by default, we can change the BasicType used by Hibernate by using __@Type(type="newType")__ before property, we can also create our own custome type by implementing one of two interfaces: 
@@ -73,6 +83,8 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
 * __@ElementCollection__
 * __@CollectioTable__
 
+===
+
 #### POJO Models requirements by JPA and Hibernate
 * use __@Entity__ annotation
 * public or protected non-argument constructor define (Hibernate also allows package visibility)
@@ -81,14 +93,20 @@ weâ€™re working inside the specification; if we also import org.hibernate.*, weâ
 * no enum or interfaces
 * both abstract and concrete classes can be entities
 
+===
+
 #### Access strategies
 Hibernate use access strategy based on where we put @Id annotation:
 * __field-based__ - when we mark field with annotation hibernate assume access via field
 * __property-based__ - when we mark getter with annotation hibernate assume access via getter
 * __@Access__ - the default strategy can be overridden by indicate access type: @Access(AccessType.FIELD)
 
+===
+
 #### Fields
 Not all annotations are necessery, for example @Table, @Column, @JoinColumn are not obligatory. Hibernate assumes that all fields inside entity object are persistent fields and name of table, columns correspond to fields names.
+
+===
 
 #### Identifiers and value generation
 * Hibernate assume that corresponding database column is:
@@ -120,6 +138,8 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
     * SEQUENCE - database sequence should be used for obtaining primary key values
     * TABLE - database table should be used for obtaining primary key values
 
+===
+
 #### Associations
 * __@ManyToOne__
   * equivalent in database e.g. foreign key
@@ -137,6 +157,8 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
   * requires a link table that joins two entities
   * can be unidirectional or bidirectional
   * similar to unidirectional @OneToMany associations, the link table is controlled by the owning side
+
+===
 
 #### Collections of entities
 * Entity collections can represent __@OneToMany__ and __@ManyToOne__ association
@@ -163,10 +185,14 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
   * __sorted maps__
   * __arrays__ - hibernate doesn't support native database array types, java arrays are relevent for basic types only
 
+===
+
 #### Natural Ids
 * __@NaturalId__ - We can inform Hibernate that entity has some meaningful property that can uniquely identify entity but its not an entity identifier (Primary Key)
 * Hibernate provides API for loading entity by its natural id
 * By default @NaturalId is immutable, we can allow entity attribute to change by using @NaturalId(mutable=true)
+
+===
 
 #### Inheritance
 
