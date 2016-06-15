@@ -297,7 +297,7 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
     * useful when it is known that the database state has changed since the data was loaded
     * ```session.refresh( person );```
 * Working with __detached__ data
-  * detachment is the process of working with data outside of any persitence context, data becomes detached in number of ways:
+  * detachment is the process of working with data outside of any persitence context, data becomes detached when:
     * persistence context is closed
     * clearing the persistence context
     * evicting entity from the persistence context
