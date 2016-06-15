@@ -1,5 +1,4 @@
 # Spring Core
----
 
 #### Configuration
 * Spring Configuration (automatic configuration + java config is preffered)
@@ -11,7 +10,7 @@
   * @Import(CDPlayerConfig.class)
   * @ImportResource("classpath:cd-config.xml")
 
----
+===
 
 #### Scopes: 
   * declared using @Scope annotation
@@ -21,7 +20,7 @@
     * __Session__ - one instance of the bean is created for each session.
     * __Request__ - one instance of the bean is created for each request.
 
----
+===
 
 #### Spring Annotations:
   * __@Configuration__
@@ -71,12 +70,12 @@
     * property placeholder => ${disc.title}, property is stored in some.properties file
     * create @Bean => PropertySourcesPlaceholderConfigurer
 
----
+===
 
 #### Spring Expression Language
   * are framed with #{ ... },
   * #{systemProperties['disc.title']}
 
-
+===
 
 
