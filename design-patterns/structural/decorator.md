@@ -6,7 +6,7 @@ Decorator pattern in UML.
 
 * Component - interface on which client operate
 * ConcreteComponent - some concrete object with his functionality
-* Decorator - interface for different decorators implementations, it contains component object, his functionality and
- additional functionality that decorator provides
+* Decorator - interface for different decorators implementations, it contains component object and his functionality
+* ConcreteDecorator - some decorator that contains component and adds additional functionality to it
 
 ===
