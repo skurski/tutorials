@@ -2,7 +2,6 @@
 ### (Creational pattern)
 
 ![Factory Method design pattern](http://www.dofactory.com/images/diagrams/net/factory.gif)
-Factory Method pattern in UML.
 
 * Creator - interface that has method for creating concrete products
 * ConcreteCreator - implementation of Creator, return new concrete product
