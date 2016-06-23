@@ -37,6 +37,8 @@
     * __@Service__
   * __@Autowired__ (also @Inject)
     * bean is automatically wire to other bean
+    * autowire by type is used (only with xml we can define byType or byName)
+    * to use autowire by name - use __@Resource__
   * __@Profile (“profileName”)__ 
     * class annotation, class will be loaded only if profile is active, from spring 3.2 it may be also used with @Bean at the level of method
     * all beans without profile will be created regardless which profile is active
