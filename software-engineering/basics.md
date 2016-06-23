@@ -1,4 +1,4 @@
-### Introduction
+### Software Engineering
 
 * __Software__ - Computer programs and associated documentation, may be developed:
     * for a particular customer - customer own the specification, customer make decisions on software changes
@@ -221,6 +221,166 @@ requirements:
 ===
 
 ### Requirements engineering
+
+* __Requirement__ - It may range from a high-level abstract statement of a service or of a system constraint to a
+detailed mathematical functional specification, it should show WHAT the system should do rather than HOW it should do
+ it, types:
+    * __User requirements__ - Statements in natural language plus diagrams of the services the system provides and
+    its operational constraints. Written for customers.
+    * __System requirements__ - A structured document setting out detailed descriptions of the system’s functions,
+    services and operational constraints. Defines what should be implemented so may be part of a contract between
+    client and contractor.
+* __Stakeholder types:__
+    * __End users__
+    * __System managers__
+    * __System owners__
+    * __External stakeholders__
+* Agile methods usually use incremental requirements engineering ("user stories"), detailed system requirements is a
+waste of time as requirements change so quickly
+* __Requirements types:__
+    * __Functional:__
+        * Describe functionality or system services.
+        * Depend on the type of software, expected users and the type of system where the software is used.
+        * Functional user requirements may be high-level statements of what the system should do.
+        * Functional system requirements should describe the system services in detail.
+    * __Non-functional:__
+        * These define system properties and constraints e.g. reliability, security, response time and storage
+        requirements. Constraints are I/O device capability, system representations, etc.
+        * Process requirements may also be specified mandating a particular IDE, programming language or development
+        method.
+        * Non-functional requirements may be more critical than functional requirements. If these are not met, the
+        system may be useless.
+        * Often apply to the system as a whole rather than individual features or services.
+* __Metrics for nonfunctional requirements:__
+    * speed, size, ease of use, reliability, robustness, portability
+* __Requirements engineering processes:__
+    * __elicitation__
+        * Software engineers work with a range of system stakeholders to find out about the application domain, the
+        services that the system should provide, the required system performance, hardware constraints, other
+        systems, etc, activities:
+        * Requirements discovery - Interacting with stakeholders to discover their requirements. Domain requirements
+        are also discovered at this stage.
+        * Requirements classification and organisation - Groups related requirements and organises them into coherent
+        clusters.
+        * Prioritisation and negotiation - Prioritising requirements and resolving requirements conflicts.
+        * Requirements specification - Requirements are documented and input into the next round of the spiral.
+        * You can use a range of techniques for requirements elicitation including interviews and ethnography. User
+        stories and scenarios may be used to facilitate discussions.
+    * __analysis__
+    * __validation:__
+        * Validity. Does the system provide the functions which best support the customer’s needs?
+        * Consistency. Are there any requirements conflicts?
+        * Completeness. Are all functions required by the customer included?
+        * Realism. Can the requirements be implemented given available budget and technology
+        * Verifiability. Can the requirements be checked?
+    * __management:__
+        * Requirements management is the process of managing changing requirements during the requirements
+        engineering process and system development.
+
+===
+
+### System modeling
+
+* System modeling is the process of developing abstract models of a system, with each model presenting a different
+view or perspective of that system.
+* System modeling has now come to mean representing a system using some kind of graphical notation, which is now
+almost always based on notations in the Unified Modeling Language (UML).
+* System modelling helps the analyst to understand the functionality of the system and models are used to communicate
+with customers.
+* __UML diagram types:__
+    * __Activity diagram__ - show the activities involved in a process or in data processing
+    * __Use case diagram__ - show the interactions between a system and its environment
+    * __Sequence diagram__ - show interactions between actors and the system and between system components
+    * __Class diagram__ - show the object classes in the system and the associations between these classes
+    * __State diagram__ - show how the system reacts to internal and external events
+* Context models are used to illustrate the operational context of a system - they show what lies outside the system
+boundaries.
+* System boundaries are established to define what is inside and what is outside the system.
+* __Behavioral models:__
+    * Behavioral models are models of the dynamic behavior of a system as it is executing. They show what happens or
+    what is supposed to happen when a system responds to a stimulus from its environment, 2 types of stimuli:
+        * data (Data-driven modelling)
+        * events (Event-driven modelling)
+    * State machine models
+
+===
+
+#### Model-driven engineering
+
+* Model-driven engineering (MDE) is an approach to software development where models rather than programs are the
+principal outputs of the development process (models that can be automatically transformed to executable code)
+* Model-driven architecture (MDA) was the precursor of more general model-driven engineering
+* MDA is a model-focused approach to software design and implementation that uses a subset of UML models to describe a
+ system.
+* __Types of model:__
+    * __Computation independent model (CIM)__ - These model the important domain abstractions used in a system. CIMs
+    are sometimes called domain models.
+    * __Platform independent model (PIM)__ - These model the operation of the system without reference to its
+    implementation. The PIM is usually described using UML models that show the static system structure and how it
+    responds to external and internal events.
+    * __Platform specific models (PSM)__ - These are transformations of the platform-independent model with a separate
+    PSM for each application platform. In principle, there may be layers of PSM, with each layer adding some
+    platform-specific detail.
+
+===
+
+### Architectural design
+
+* Architectural design is concerned with understanding how a software system should be organized and designing the
+overall structure of that system.
+* Architectural design is the critical link between design and requirements engineering, as it identifies the main
+structural components in a system and the relationships between them.
+* The output of the architectural design process is an architectural model that describes how the system is organized
+as a set of communicating components.
+* __Architectural views:__
+    * __logical view__
+    * __process view__
+    * __development view__
+    * __physical view__
+    * related using use cases of scenarios
+* __Architectural patterns:__
+    * An architectural pattern is a stylized description of good design practice, which has been tried and tested in
+    different environments, examples:
+        * __MVC__
+        * __Layered architecture__
+            * Data layer (database)
+            * Data access layer
+            * Business layer
+            * Presentation layer
+        * __Repository architecture__
+            * Sub-systems must exchange data. This may be done in two ways:
+                * Shared data is held in a central database or repository and may be accessed by all sub-systems;
+                * Each sub-system maintains its own database and passes data explicitly to other sub-systems.
+        * __Client - Server architecture__
+            * distributed system model
+            * set of stand-alone servers which provide services
+            * set of clients which call on these services
+            * network which allows clients to access servers
+        * __Pipe and filter architecture__
+            * The processing of the data in a system is organized so that each processing component (filter) is
+            discrete and carries out one type of data transformation. The data flows (as in a pipe) from one
+            component to another for processing.
+
+===
+
+### Design and implementation
+
+* Software design and implementation is the stage in the software engineering process at which an executable software
+ system is developed.
+* Software design and implementation activities are invariably inter-leaved.
+    * Software design is a creative activity in which you identify software components and their relationships, based
+    on a customer’s requirements.
+    * Implementation is the process of realizing the design as a program.
+* Architectural design
+* Design patterns - A pattern is a description of the problem and the essence of its solution, elements:
+    * Name
+    * Problem description
+    * Solution description
+    * Consequences
+* Implementation issues
+
+
+
 
 
 
