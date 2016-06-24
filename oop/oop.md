@@ -30,9 +30,9 @@ final, static
  destroyed, all children are destroyed as well.
 * __Aggregation__ - also one objects owns another objects but not such strong relationship as composition, children are
 independent, can be used by another objects and can outlive parent.
-* Examples of composition in design patterns:
+* Examples of composition in design patterns (also good examples of Open/Close principle):
     * __Decorator__
-    * __Strategy__ - e.g. Comparator, great example of flexibility in design and harmony with the Open/Close
+    * __Strategy__ - e.g. Comparator, great example of flexibility in design
     principle
 * Examples of inheritance in design patterns:
     * __Template method__
@@ -41,10 +41,10 @@ independent, can be used by another objects and can outlive parent.
 * __Inheritance__
     * one of disadvantage is that is breaks encapsulation, if sub class depends on super class behaviour for its
     operation when behavior of super class changes, functionality in sub class may get broken
+* __Composition__
     * java doesn't support multiple inheritance
     * easier to test, composed class can be represented by mock object
     * not so high coupling, more flexibility
-* __Composition__
 
 #### Inversion Of Control (IoC)
 Programming technique in which object coupling is bound at runtime by an assembler object and is typically not known
@@ -56,7 +56,7 @@ __Service Locator__ - design pattern that also implements inversion of control, 
 locator the application class asks for dependency explicitly by a message to the locator. With injection there is no
 explicit request, the service appears in the application class.
 
-#### DEPENDENCY INJECTION
+#### Dependency Injection
 * Injection can be made by:
     * Fields
     * Setters
@@ -73,17 +73,17 @@ explicit request, the service appears in the application class.
 * Design pattern is a general repeatable solution to a commonly occurring problem in software design.  A design
 pattern isn't a finished design that can be transformed directly into code. It is a description or template for how
 to solve a problem that can be used in many different situations.
-* Description of design pattern:
+* __Description of design pattern:__
     * Name
     * Problem
     * Solution
     * Consequence
-* Benefits:
+* __Benefits:__
     * standard solution created by experts with experience
     * make code more flexible
     * easier to scale
     * understand by all developers (improve communication)
-* Drawbacks:
+* __Drawbacks:__
     * may be complex
     * increase amount of code and as a result may decrease understandability of a design
     * bad implementation of pattern or choosing wrong pattern
@@ -94,3 +94,4 @@ to solve a problem that can be used in many different situations.
     * Decorator - e.g. BufferedInputStream, BufferedReader
     * Template method - java.io
     * Observer - swing
+
