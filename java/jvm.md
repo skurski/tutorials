@@ -17,9 +17,6 @@ __Java Development Kit (JDK)__ is a superset of a JRE and contains tools for Jav
 Besides interpreting Java bytecode, most software implementations of the __JVM include a just-in-time (JIT) compiler 
 that generates machine code for frequently used methods__. Machine code is the native language of the CPU and can be 
 executed much faster than interpreting bytecode.
- 
-Image taken from https://anturis.com/blog/java-virtual-machine-the-essential-guide/: 
-[Hibernate documentation](https://anturis.com/blog/java-virtual-machine-the-essential-guide/jvm-architecture.png)
 
 __JVM includes the following major subsystems:__
 * __Class Loader__ - responsible for loading classes into the data areas:
@@ -52,8 +49,9 @@ __JVM includes the following major subsystems:__
 * __Execution engine__ - responsible for executing instructions from the data areas:
     * The execution engine executes commands from the bytecode loaded into the data areas one by one. To make the 
     bytecode commands readable to the machine, the execution engine uses two methods:
-        * Interpretation - The execution engine changes each command to machine language as it is encountered.
-        * Just-in-time (JIT) compilation - If a method is used frequently, the execution engine compiles it to native 
+        * __Interpretation__ - The execution engine changes each command to machine language as it is encountered.
+        * __Just-in-time (JIT)__ compilation - If a method is used frequently, the execution engine compiles it to
+        native 
           code and stores it in the cache. After that, all commands associated with this method are executed directly
            without interpretation. 
            Although JIT compilation takes more time than interpretation, it is done only once for a method that might
@@ -61,14 +59,14 @@ __JVM includes the following major subsystems:__
             to interpreting each command one by one every time it is encountered. JIT compilation is not a 
             requirement of the JVM specification, and it is not the only technique that is used to improve JVM 
             performance. JIT Can work as:
-            * client system
-            * server system
+            * __client system__
+            * __server system__
             * These two systems are different binaries. They are essentially two different compilers (JITs)interfacing to
             the same runtime system. The client system is optimal for applications which need fast startup times or small
             footprints, the server system is optimal for applications where the overall performance is most important. In
             general the client system is better suited for interactive applications such as GUIs. Some of the other
             differences include the compilation policy,heap defaults, and inlining policy.
-    * Garbage Collector (Memory Management)
+    * __Garbage Collector (Memory Management)__
     
 __Memory (heap) in Java HotSpot virtual machine is divided into 3 generations:__
 * __Young generation__
@@ -136,11 +134,11 @@ subsequent allocations, but the drawback is the additional time required for cop
 space that may be required.
 
 * How HotSpot GC works:
-    * Mark / Sweep / Compact
+    * __Mark / Sweep / Compact__
         * mark - identifies (mark) objects that are still in use (references to this objects exists)
         * sweep - remove unused objects, memory will be fragmentized
         * compact - compact the memory (not every type of GC use this)
-* Parameters for JVM:
+* __Parameters for JVM:__
     * -Xms (-Xms8m) Sets the initial heap size for when the JVM starts.
     * -Xmx (-Xmx32m) Sets the maximum heap size.
     * -Xmn	Sets the size of the Young Generation.
