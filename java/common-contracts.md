@@ -3,6 +3,7 @@
 ### Equals
 
 The equals method implements an equivalence relation. It is:
+
 1. Reflexive: For any non-null reference value x, x.equals(x) must return true.
 2. Symmetric: For any non-null reference values x and y, x.equals(y) must re-
 turn true if and only if y.equals(x) returns true.
@@ -13,6 +14,7 @@ then x.equals(z) must return true.
 5. For any non-null reference value x, x.equals(null) must return false.
 
 Good equals:
+
 1. Check if NULL
 2. Use the == operator to check if it is the same object
 3. Use the instanceof operator (or getClass method) to check if correct type
@@ -34,6 +36,7 @@ false
 }
 ```
 __Contract:__
+
 1. Whenever it is invoked on the same object more than once during an execution of an application, the hashCode method
  must consistently return the same integer, provided no information used in equals comparisons on the object is 
  modified. This integer need not remain consistent from one execution of an application to another execution of the 
@@ -45,6 +48,7 @@ hashCode method on each of the two objects must produce distinct integer results
 aware that producing distinct integer results for unequal objects may improve the performance of hash tables.
 
 __Practices:__
+
 If a class is immutable and the cost of computing the hash code is significant, you might consider caching the hash 
 code in the object rather than recalculating it each time it is requested. If you believe that most objects of this 
 type will be used as hash keys, then you should calculate the hash code when the instance is created. Otherwise, you 
@@ -67,6 +71,7 @@ private volatile int hashCode; // (See Item 71)
 ```
 
 __Recipe to write good hashcode:__
+
 1. Store some constant nonzero value, say, 17, in an int variable called result.
 2. For every field f tested in the equals() method, calculate a hash code c by:
     1. If the field is a boolean, compute (f ? 1 : 0).
@@ -96,6 +101,7 @@ this object is less than, equal to, or greater than the specified object. Throws
 object’s type prevents it from being compared to this object. In the following description, the notation sgn
 (expression) designates the mathematical signum function, which is defined to return -1, 0, or 1, according to 
 whether the value of expression is negative, zero, or positive.
+
 1. The implementor must ensure sgn(x.compareTo(y)) == -sgn(y.compareTo(x)) for all x and y. (This implies that x
 .compareTo(y) must throw an exception if and only if y.compareTo(x) throws an exception.)
 2. The implementor must also ensure that the relation is transitive: (x.compareTo(y) > 0 && y.compareTo(z) > 0)
@@ -106,7 +112,8 @@ implies x.compareTo(z) > 0.
 speaking, any class that implements the Comparable interface and violates this condition should clearly indicate this
  fact. The recommended language is “Note: This class has a natural ordering that is inconsistent with equals.”
  
-* Compare methods can be improved by using subtractions rather than if conditions because contract specify only the
+  
+Compare methods can be improved by using subtractions rather than if conditions because contract specify only the
 sign of return value. This trick works fine here but should be used with extreme caution. Don’t use it unless you’re 
 certain the fields in question are non-negative or, more generally, that the difference between the lowest and 
 highest possible field values is less than or equal to Integer.MAX_VALUE (2^31-1).
