@@ -1,19 +1,17 @@
-# Common contracts
-
-### Equals
+# Equals
 
 The equals method implements an equivalence relation. It is:
 
-1. Reflexive: For any non-null reference value x, x.equals(x) must return true.
-2. Symmetric: For any non-null reference values x and y, x.equals(y) must re-
+1. __Reflexive:__ For any non-null reference value x, x.equals(x) must return true.
+2. __Symmetric:__ For any non-null reference values x and y, x.equals(y) must re-
 turn true if and only if y.equals(x) returns true.
-3. Transitive: For any non-null reference values x, y, z, if x.equals(y) returns true and y.equals(z) returns true,
+3. __Transitive:__ For any non-null reference values x, y, z, if x.equals(y) returns true and y.equals(z) returns true,
 then x.equals(z) must return true.
-4. Consistent: For any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true
- or consistently return false, provided no information used in equals comparisons on the objects is modified.
+4. __Consistent:__ For any non-null reference values x and y, multiple invocations of x.equals(y) consistently return
+true or consistently return false, provided no information used in equals comparisons on the objects is modified.
 5. For any non-null reference value x, x.equals(null) must return false.
 
-Good equals:
+__Good equals:__
 
 1. Check if NULL
 2. Use the == operator to check if it is the same object
@@ -22,8 +20,7 @@ Good equals:
 5. Perform comparison of every "significant" field in the class, if all fields matches return true, otherwise return
 false
 
-===
-### Hashcode
+# Hashcode
 
 ```java
 @Override public int hashCode() {
@@ -93,7 +90,6 @@ __Recipe to write good hashcode:__
 Write unit tests to verify your intuition! If equal instances have unequal hash codes, figure out why and fix the 
 problem.
 
-===
 # Comparable / Comparator
 
 Compares this object with the specified object for order. Returns a negative integer, zero, or a positive integer as 
