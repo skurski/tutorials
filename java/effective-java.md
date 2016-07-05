@@ -121,11 +121,51 @@ class Person {
 * prefer primitives to boxed primitives, and watch out for unintentional autoboxing.
 
 ===
-### Eliminate obsolete object references
+### Classes and Interfaces
+
+* Make each class or member as inaccessible as possible.
+* Instance fields should never be public, classes with mutable fields are not thread safe
+* It is wrong for a class to have a public static final array field, or an accessor that returns such a field because
+ a nonzero-length array is always mutable => you should return immutable collection or copy of array
+ ```java
+    private static final Thing[] PRIVATE_VALUES = { ... };
+    public static final List<Thing> VALUES =
+        Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));
+    
+    private static final Thing[] PRIVATE_VALUES = { ... };
+    public static final Thing[] values() {
+        return PRIVATE_VALUES.clone();
+    }
+ ```
 
 ===
-### Avoid finalizers
+### Immutable class
 
-* Finalizers are unpredictable, often dangerous, and generally unnecessary.
+1. Ensure that the class can't be extended => final class
+2. Make all fields final.
+3. Make all fields private.
+4. Don't provide any methods that modify the object's state (known as mutators).
+5. Ensure exclusive access to any mutable components.
 
-### Always override toString
+===
+### Favor composition over inheritance
+
+1. Unlike method invocation, inheritance violates encapsulation. In other words, a subclass depends on the 
+implementation details of its superclass for its proper function. The superclass’s implementation may change from 
+release to release, and if it does, the subclass may break, even though its code has not been touched.
+2. Examples of composition over inheritance in design patterns e.g.:
+    * Decorator
+    * Strategy
+3. When inheritance is used the class must document its self-use of overridable methods (if child class override 
+method that is used internally in parent class it will break the functionality of child class)
+4. The only way to test a class designed for inheritance is to write subclasses.
+
+===
+### General advices
+
+* Eliminate obsolete object references
+* Avoid finalizers
+    * Finalizers are unpredictable, often dangerous, and generally unnecessary.
+* Always override toString
+* Prefer interfaces to abstract classes
+* Favor static member classes over nonstatic
