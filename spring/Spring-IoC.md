@@ -2,23 +2,23 @@
 
 ### Spring Context
 
-The org.springframework.beans and org.springframework.context packages are the basis for Spring Framework’s IoC 
+The __org.springframework.beans__ and __org.springframework.context__ packages are the basis for Spring Framework’s IoC 
 container. The __BeanFactory__ interface provides an advanced configuration mechanism capable of managing any type of 
 object. __ApplicationContext__ is a sub-interface of BeanFactory. It adds easier integration with Spring’s AOP 
 features; message resource handling (for use in internationalization), event publication; and application-layer 
 specific contexts such as the WebApplicationContext for use in web applications.
 
 
-The interface org.springframework.context.ApplicationContext represents the Spring IoC container and is responsible 
+The interface __org.springframework.context.ApplicationContext__ represents the Spring IoC container and is responsible 
 for instantiating, configuring, and assembling the beans. The container gets its instructions on what objects to 
-instantiate, configure, and assemble by reading configuration metadata. The configuration metadata is represented in 
-XML, Java annotations, or Java code. It allows you to express the objects that compose your application and the rich 
+instantiate, configure, and assemble by reading configuration metadata. __The configuration metadata is represented in 
+XML, Java annotations, or Java code__. It allows you to express the objects that compose your application and the rich 
 interdependencies between such objects.
 
 
 #### Configuration metadata
 * Forms of metadata that can be used with Spring container:
-    * __Xml based configuration__ - define beans in XML files
+    * __Xml-based configuration__ - define beans in XML files
     * __Annotation-based configuration__ - Spring 2.5 introduced support for annotation-based configuration metadata.
     * __Java-based configuration__ - Starting with Spring 3.0, many features provided by the Spring JavaConfig project 
 became part of the core Spring Framework. Thus you can define beans external to your application classes by using 
@@ -31,38 +31,38 @@ annotations.
 
 
 ### Bean Scopes
-Spring allows to declare the scope of the objects that will be created within the container. (Simply we can define 
-how many objects of concreate type will be created).
-    * declared using @Scope annotation
-    * __singleton__ (default) — one instance of the bean is created for the entire application, may not be safe for 
-    mutable objects
-    * __prototype__ — one instance of the bean is created every time the bean is injected into or retrieved from the 
-    Spring application context.
-    * Also when using web app:
-        * __session__ - one instance of the bean is created for each HTTP session.
-        * __request__ - one instance of the bean is created for each HTTP request.
-        * __globalSession__ - one instance of the bean is created for global HTTP session.
-        * __application__ - one instance of the bean is created for a lifecycle of a ServletContext
-        * __websocket__ - one instance of the beank is created for a lifecycle of a WebSocket
+Spring allows to declare the scope of the objects within the container. (Simply we can define how many objects of concreate type will be created). Predefine scopes:
+
+ * to indicate scope we use __@Scope__ annotation
+ * __singleton__ (default) — one instance of the bean is created for the entire application, may not be safe for 
+ mutable objects
+ * __prototype__ — one instance of the bean is created every time the bean is injected into or retrieved from the 
+ Spring application context.
+ * Also when using web app:
+     * __session__ - one instance of the bean is created for each HTTP session.
+     * __request__ - one instance of the bean is created for each HTTP request.
+     * __globalSession__ - one instance of the bean is created for global HTTP session, typically only valid when used in a portlet context
+     * __application__ - one instance of the bean is created for a lifecycle of a ServletContext
+     * __websocket__ - one instance of the beank is created for a lifecycle of a WebSocket
         
         
 ### Lifecycle Mechanisms
-There are three options for controlling bean lifecycle behavior: the InitializingBean and DisposableBean callback 
-interfaces; custom init() and destroy() methods; and the @PostConstruct and @PreDestroy annotations. You can combine 
+__There are three options for controlling bean lifecycle behavior: the InitializingBean and DisposableBean callback 
+interfaces; custom init() and destroy() methods; and the @PostConstruct and @PreDestroy annotations.__ You can combine 
 these mechanisms to control a given bean.
 
 
-Multiple lifecycle mechanisms configured for the same bean, with different initialization methods, are called as 
-follows:
+Multiple lifecycle mechanisms configured for the same bean, with different initialization methods, are called as follows:
 
-    Methods annotated with @PostConstruct
-    afterPropertiesSet() as defined by the InitializingBean callback interface
-    A custom configured init() method
-    
-    Destroy methods are called in the same order:
-    Methods annotated with @PreDestroy  
-    destroy() as defined by the DisposableBean callback interface
-    A custom configured destroy() method
+1. __Construct methods:__
+   * Methods annotated with @PostConstruct
+   * afterPropertiesSet() as defined by the InitializingBean callback interface
+   * A custom configured init() method
+ 
+2. __Destroy methods__ are called in the same order:
+   * Methods annotated with @PreDestroy  
+   * destroy() as defined by the DisposableBean callback interface
+   * A custom configured destroy() method
 
 
 #### Spring Annotations:
