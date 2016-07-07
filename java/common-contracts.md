@@ -15,7 +15,7 @@ __Good equals:__
 
 1. Check if NULL
 2. Use the == operator to check if it is the same object
-3. Use the instanceof operator (getClass method broke Liskov Substitution Principle if subclass uses equals of parent class) to check if correct type
+3. Use the instanceof operator to check if correct type
 4. Cast to the correct type
 5. Perform comparison of every "significant" field in the class, if all fields matches return true, otherwise return
 false
