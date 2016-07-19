@@ -1,6 +1,8 @@
 # Clean Code
 
-### Functions
+## Functions
+
+### General Principles
 * __Small__ - functions should be small, no more than 20 lines long
 * __Indent__ - no more than one or two, it makes functions easier to read and understand
 * __Do One Thing__ - make sure that the statements within our function are all at the same level of abstraction
@@ -17,7 +19,7 @@ it can be unexpected changes to the variables of its own class or to the paramet
 state of an object, or it should return some infromation about that object.
 * __Prefer Exceptions than returning error codes__ - Error Handling is also a One Thing
 
-__Function Arguments number:__
+### Function Arguments number:
 * __zero__ - it is the ideal number
 * __one__ - it is the most natural situation and easy to read
 * __two__ - sometimes two arguments are also natural (e.g. point have 2 parameters (x,y))
@@ -40,9 +42,11 @@ void dyad(String name, Integer... args);
 void triad(String name, int count, Integer... args);
 ```
 
-__Writing a good function:__ 
+### Writing a good function:
 * __Write test__ - we should use TDD approach and start with writing tests 
 * __Write production code__ - then immediately during writing tests we create production code, we create logic to the moment all our
 test are green
-* __Refactoring__ - we refactor so we splitting our function, changing names, eliminating duplication, create classes if needed, all 
+* __Refactor__ - we refactor so we splitting our function, changing names, eliminating duplication, create classes if needed, all 
 the while keeping the tests passing.
+
+===
