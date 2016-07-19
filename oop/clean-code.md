@@ -1,4 +1,4 @@
-# Clean Code
+# Clean Code - A Handbook of Agile Software Craftsmanship
 
 ## 3. Functions
 
@@ -52,3 +52,28 @@ the while keeping the tests passing.
 ===
 
 ## 4. Comments
+* __Don't comment bad code - rewrite it!__
+* __Javadocs in Public APIs__ - we should create documentation for public API but not for every method and field
+* __Commented-out code - don't do this!__
+* __Avoid comments whenever it is possible__
+* __Self explonatory field or small function is better than comment header__
+* __Should be informative__ - and should be used only when the code cannot explain itself enough
+
+===
+
+## 5. Formatting
+* __Class size__ - small files are usally easier to understand than large files, desirable should be class with 200 lines and the upper limit of 500 lines
+* __Read class like Newspaper:__
+  * __header__ - at the top we should have simple but explanatory class name, 
+  * __summary__ - the topmost parts should provide the high-level concepts and algorithms (in this place we need to remember about
+    conceptual affinity so for example if high-level method calls other method, the callee should appear below)
+  * __details__ - as we move downward the details should increase, at the end we find the lowest level functions and details
+* __Vertical density__ - lines of code that are tightly related should be kept vertically close to each other
+* __Dependent functions__ - if one function calls another, they should be vertically close and the caller should be above the callee if possible
+* __Conceptual Affinity__ - dependent functions is one example of affinity, another is a group of functions that perform a similar operation so we also should keep them close 
+* __Horizontal length__ - no more than 120 characters
+* __Indentation__
+
+===
+
+## 6. Objects and Data Structures
