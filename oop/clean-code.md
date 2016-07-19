@@ -1,6 +1,6 @@
 # Clean Code
 
-## Functions
+## 3. Functions
 
 ### General Principles
 * __Small__ - functions should be small, no more than 20 lines long
@@ -50,3 +50,5 @@ test are green
 the while keeping the tests passing.
 
 ===
+
+## 4. Comments
