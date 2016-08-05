@@ -48,3 +48,24 @@ Apache SOLR allows multiple __cores__. __Every Core__ has its own schema and con
   * each field can have many different attributes,
   * e.g: ``` <field name="description" type="text_general" indexed="true" stored="true">``` (if the field is set to indexed="true" but stored="false" we can search (and sort) by indexed field but we are not able to retrieve information about indexed field)
   * [field properties by use case](https://cwiki.apache.org/confluence/display/solr/Field+Properties+by+Use+Case)
+* __Schema.xml__
+  * contains details about document fields and how to treat when documents __added to__ or __queried from__ the index 
+  * declare:
+    * Fields, Field Types and Attribues
+    * Primary key (unique) field
+    * Which fields are required
+    * How to index and search
+  * it is possible to use __Schemaless mode__
+* __Solrconfig.xml__
+  * contains parameters to configure Solr Core 
+* __Indexing__
+  * adding content to Solr index
+  * modyfing it if necessary
+  * making it searchable
+  * ways of indexing:
+    * __post.jar__ tool
+    * uploading XML files sending via HTTP requests
+    * database via __DataImportHandler__
+    * custom Java application via Solr's Java Client API
+    * __SolrJ__ for Java
+    * many others
