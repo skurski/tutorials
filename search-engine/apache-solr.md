@@ -69,3 +69,7 @@ Apache SOLR allows multiple __cores__. __Every Core__ has its own schema and con
     * custom Java application via Solr's Java Client API
     * __SolrJ__ for Java
     * many others
+
+__Updating data via Admin UI__
+* __partial update__ - we update only selected field/fields but to do so all fields need to be set to stored true (index will be bigger)
+* __full update__ - we need to specify all fields, if not they will be lost
