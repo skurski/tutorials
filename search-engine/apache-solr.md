@@ -40,8 +40,11 @@ __Query__: [http://localhost:8983/solr/select?g=video](http://localhost:8983/sol
 Apache SOLR allows multiple __cores__. __Every Core__ has its own schema and configuration.
 
 ### Schemas, documents and indexing
-* __Document__ - basic unit of information, made up of fields
-* __Field__ - specific piece of information within a document, contains different types of data, each field can have many different attributes, e.g: 
-  ``` <field name="description" type="text_general" indexed="true" stored="true">```
-  (if the field is set to indexed="true" but stored="false" we can search (and sort) by indexed field but we are not able to retrieve information about indexed field)
-  [field properties by use case](https://cwiki.apache.org/confluence/display/solr/Field+Properties+by+Use+Case)
+* __Document__
+  * basic unit of information, made up of fields
+* __Field__ 
+  * specific piece of information within a document,
+  * contains different types of data,
+  * each field can have many different attributes,
+  * e.g: ``` <field name="description" type="text_general" indexed="true" stored="true">``` (if the field is set to indexed="true" but stored="false" we can search (and sort) by indexed field but we are not able to retrieve information about indexed field)
+  * [field properties by use case](https://cwiki.apache.org/confluence/display/solr/Field+Properties+by+Use+Case)
