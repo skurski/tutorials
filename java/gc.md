@@ -20,6 +20,13 @@
     - __G1 GC__
     
     
- 3. Tunning:
-  - Two goals - __Maximum througput__ or __low latency__
-  
+ 3. Tunning (two different goals):
+  - __Maximum througput__
+    - minimize GC overhead - less resources (threads) for GC, less frequent execution of old collector
+    - Parallel GC
+  - __low latency__
+    - minimize GC time - more concurrent jobs, less frequent execution of old collector
+    - CMS GC
+  - in both cases we want to avoid to early promotion of objects from young to old generation
+  - G1 GC - most modern GC, somewhere between Parallel and CMS GC
+    - uses regions, 2048 regions with size from 1 to 32 MB, every region can be type of: eden, survivor, old, humugous
