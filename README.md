@@ -2,10 +2,8 @@
 ---
 
 Quick-start tutorials:
-* Spring Dependency Injection
-* Spring MVC
-* Hibernate
-* GWT
-* Gwt Resty
-* Git
+* Java interfaces, classes, enums, contracts, ...
+* Spring components
+* ORM - hibernate
+* OOP, TDD
 * ...
