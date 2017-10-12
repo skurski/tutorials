@@ -18,33 +18,37 @@ interface example {
 * to be able to implement interface method we need to create class that implement this interface and override method
 * in order to create some common implementation we need to use abstract class (that implement this interface) and we can inherit only from one class so this is a big disadvantage
 
-
+----
 ### Interface in Java 8
 
 ```java
 interface example {
 	int sum = 0; //constants
 	void fun1(); //abstract method
-  default void fun2(){
-    //implementation
-  }
-  static boolean common() {
+	default void fun2(){
+		//implementation
+	}
+	static boolean common() {
 		System.out.println("Common functionality.");
+	}
 }
 ```
 
 #### Interface can contains (all public):
 * constant variable
 * abstract method
-* default method with implementation
-* static method - common functionality for interface
+* __default method with implementation__
+* __static method - common functionality for interface__
 
-
+----
 ### Interface in Java 9 - now we have even more
 
-* Constant variable
-Abstract method
-Default methodStatic methodPrivate methodPrivate Static method
+* constant variable
+* abstract method
+* default method
+* static method
+* __private method__
+* __private static method__
 
 
 
