@@ -1,5 +1,52 @@
 # Git commands
 
+## Git config
+* ~/.gitconfig - git config file, example:
+```
+[user]
+        email = peterskurski@gmail.com
+        name = Peter Skurski
+[core]
+        editor = nano
+```
+* ```git config --global user.name "User Name"```
+* ```git config --global user.email "email@address.com"```
+* ```git config --global core.editor "nano"```
+
+## Git initialization
+* ```git init <folder>``` - creating folder and git repository inside
+* ```git init``` - creating git repository in current folder
+* ```git clone <repository address>``` - creating folder and copy repository 
+
+## Git staging
+![Git staging](staging.png)
+* ```git add <file(s)>``` - adding files to staging area
+* ```git add .``` - adding all files from working directory
+
+## Git commit 
+* ```git commit``` - adding files from staging area to repository, opens editor to add commit message
+* ```git commit -m "Message"``` - creating commit with message
+* ```git commit -a``` - combining two steps: git add and git commit, git adds only changes in files that already exists in repository
+* ```git commit -a -m "Message"``` - with additional message
+* ```git commit --interactive``` - interactive console 
+
+## Git log
+* ```git log``` - commit log
+* ```git log --oneline``` - only commit message
+* ```git log --oneline -3``` - only three last commit message
+* ```git log --stat``` - information about files changed in each commit
+* ```git log --patch``` - information about files and code changed in each commit
+* ```git log --since="2018-08-15"``` - logs from date 
+* ```git log --since="2 days ago"``` - logs from 2 last days 
+* ```git log --until="2018-08-15"``` - logs to date 
+* ```git log --grep="initial"``` - filtering logs
+
+## Git diff
+* ```git diff``` - difference between staging area and working directory (unstaged)
+* ```git diff --staged``` - difference between staging area and repository
+* ```git diff 057a2c5``` - difference between our code and chosen commit
+
+ 
 #### Managing
 * git init , creating empty repository
 * git clone <repository­url> , copy repository from remote repository url
