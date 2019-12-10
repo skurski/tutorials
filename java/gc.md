@@ -32,6 +32,7 @@
   - GC types:
     - __Serial GC__
     - __Parallel GC__
+    - __Parallel Old GC__
     - __CMS (Concurrent Mark Sweep) GC__
     - __G1 GC__ (long term replacement for CMS)
     
