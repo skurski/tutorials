@@ -46,6 +46,18 @@
 * ```git diff --staged``` - difference between staging area and repository
 * ```git diff 057a2c5``` - difference between our code and chosen commit
 
+## Git checkout
+* ```git checkout <branch ID>``` - move to some branch in git history
+* ```git checkout master``` - move to master branch
+* HEAD - pointer to the point in git repository history which refer to
+our working directory
+
+## Git branch
+* ```git branch``` - show all branch in local repository
+* ```git branch <branchName>``` - create branch, follow up with 
+git checkout to switch branch
+* ```git branch -d <branchName>``` - delete branch
+* ```git checkout -b <branchName>``` - create branch and switch to it
  
 #### Managing
 * git init , creating empty repository
