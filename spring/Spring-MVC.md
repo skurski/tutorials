@@ -1,7 +1,7 @@
 # Spring MVC
 
 #### How DispatcherServlet works?
-![DispatcherServlet](http://www.mkyong.com/wp-content/uploads/2010/07/spring-mvc-concepts-2.jpg)
+![](spring-mvc.jpg)
 
   1. __Choose SpringMVC controller__
     * The DispatcherServlet’s job is to send the request on to a Spring MVC controller. 
