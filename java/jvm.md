@@ -1,7 +1,7 @@
 # JVM
 
 __A Java virtual machine (JVM)__ is an abstract computing machine that enables a computer to run a Java program. There
-are three notions of the JVM: __specification, implementation, and instance__. The specification is a document that 
+ are three notions of the JVM: __specification, implementation, and instance__. The specification is a document that 
 formally describes what is required of a JVM implementation. Having a single specification ensures all 
 implementations are interoperable. __A JVM implementation is a computer program that meets the requirements of the 
 JVM specification. An instance of a JVM is an implementation running in a process__ that executes a computer program 
@@ -144,6 +144,30 @@ space that may be required.
     * -Xmn	Sets the size of the Young Generation.
     * -XX:PermSize	Sets the starting size of the Permanent Generation.
     * -XX:MaxPermSize	Sets the maximum size of the Permanent Generation
+    
+    ```
+    Heap Size:
+    -Xms<heap size>[unit] 
+    -Xmx<heap size>[unit]
+    
+    Young Generation:
+    -XX:NewSize=<young size>[unit] 
+    -XX:MaxNewSize=<young size>[unit]
+    
+    Metaspace:
+    -XX:MaxMetaspaceSize=<metaspace size>[unit]
+    
+    Garbage Collector:
+    Serial Garbage Collector
+    Parallel Garbage Collector
+    CMS Garbage Collector
+    G1 Garbage Collector
+    
+    -XX:+UseSerialGC
+    -XX:+UseParallelGC
+    -XX:+USeParNewGC
+    -XX:+UseG1GC
+    ```
 
 ===
 

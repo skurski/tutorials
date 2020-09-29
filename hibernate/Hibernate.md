@@ -205,7 +205,7 @@ Not all annotations are necessery, for example @Table, @Column, @JoinColumn are 
   *  each class declares its own persistent properties
   *  we use @Entity and @Inheritance annotations on root class (which exists in DB)
 *  __@Inheritance(strategy=InheritanceType.JOINED)__
-  *  table-per-sublass strategy, each subclass is mapped to its own table
+  *  all classes are mapped to its own table
   *  we use @Entity and @Inheritance annotations on root class and extend this class
 *  __@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)__
   * we map only the concrete classes of an inheritance hierarchy to tables

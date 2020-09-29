@@ -48,3 +48,24 @@ one exists
 * request - http request
 * session - http session
 
+##### ComponentScan
+
+* @ComponentScan - annotation above @Configuration class which informs
+    Spring where to search for the beans, by default it is package where 
+    Application class is present
+    
+##### Lifecycle of a Bean
+
+* @PreConstruct
+
+* @PostConstruct 
+
+* @PreDestroy - called just before bean is moved outside of the context 
+
+##### @SpringBootApplication
+
+* by default:
+    * it contains @Configuration annotation
+    * it contains @ComponentScan annotation
+    * SpringApplication.run(...) returns application context
+    * it contains spring core and spring context 
