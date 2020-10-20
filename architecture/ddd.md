@@ -54,6 +54,8 @@ In my previous project, we used the domain driven design architecture. The proje
 
 https://medium.com/code-thoughts/what-i-understand-about-domain-driven-design-f7fbd00e364f
 
+https://martinfowler.com/tags/domain%20driven%20design.html
+
 # Examples
 
 Your new architecture is also not derive from Domain Driven Design. Of course in context of tactical patterns (as strategy patterns scope go beyond the code).
