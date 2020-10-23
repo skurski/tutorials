@@ -60,3 +60,18 @@ if might have a short term benefit but a long-term cost
     - look at the bigger picture
 
 7. Exception handling 
+
+8. Spring Cloud Netflix
+
+    - Service discovery Eureka
+    
+    - Circuit Breaker Hystrix
+        - uses the circuit breaker pattern to gracefully degrade 
+        functionality when a method call fails. Use of the Circuit 
+        Breaker pattern can let a microservice continue operating 
+        when a related service fails, preventing the failure 
+        from cascading and giving the failing service time to recover.
+        
+        https://martinfowler.com/bliki/CircuitBreaker.html
+    
+    - Client Side Load Balancer 
