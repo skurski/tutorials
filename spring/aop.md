@@ -65,6 +65,12 @@ method. It is the responsibility of around advice to invoke the join point metho
 values if the method is returning something. We use @Around annotation to create around 
 advice methods.
    
+   
+### Examples
+
+Typical examples are Spring Security and @Transactional annotation (which uses Aspects
+to initialize and commit or rollback transactions)
+
 --- 
 
 ### Links
