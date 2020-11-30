@@ -66,6 +66,21 @@ Stdin - docker don't listen to standard input by default
 * ```docker run -i some/app``` - docker listen to standard input
 
 ---
+DOCKER LOGS
+
+* ```docker logs <containerId>``` - list logs for container
+
+* ```docker logs <containerId> -f``` - list logs with follow flag (tail)
+
+* ```docker logs <containerId> --tail N``` - show the last number of log lines
+
+* ```docker logs <container_id> | grep pattern```
+
+* ```docker-compose logs``` - logs from all compose services
+
+---
+
+---
 PORT & VOLUMES
 
 * ```docker run -p 8080:8080 jenkins``` - port mapping 
@@ -81,11 +96,11 @@ In production we should use compose rather than manually starting every componen
 
 * ```docker-compose -f path/to/compose/file.yml up``` - indicate the path to docker compose yaml file
 
-* ```docker-compose stop``` - stop all containers
+* ```docker-compose stop``` - stop all containers, add -f <file path> if not in the same directory
 
-* ```docker-compose down``` - remove all containers
+* ```docker-compose down``` - remove all containers, add -f <file path> if not in the same directory
 
-* ```docker-compose down -v``` - remove all containers and volumes
+* ```docker-compose down -v``` - remove all containers and volumes, add -f <file path> if not in the same directory
 
 
 ### Build an docker image
@@ -142,6 +157,10 @@ I named the mysql container `mydatabase`, just for demonstrating
 * ```docker run -d --net=my-network --name=mydatabase mysql```
 
 * ```docker run -d --net=my-network --name=myapp myappimage```
+
+* ```docker network ls``` - list all networks
+
+* ```docker network rm <network>``` - remove network
 
 ### Docker hub
 
