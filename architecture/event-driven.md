@@ -49,6 +49,8 @@ It is difficult to implement a combination of loosely-coupled services, distinct
 ## CQRS
 The above event sourcing introduces another issue: Since state needs to be built from a series of events, queries can be slow and complex. Command Query Responsibility Segregation (CQRS) is a design solution that calls for separate models for insert operations and read operations.
 
+https://microservices.io/patterns/data/event-sourcing.html
+
 ---
 Useful links:
 

@@ -1,16 +1,12 @@
 
 Technologies: 
 
-deployment:
-* kubernetes
-* jenkins
-* github / bitbucket
-* sonarqube
-
-management:
+ci/cd:
 * gradle
 * docker, docker-compose
 * github / bitbucket
+* kubernetes
+* jenkins
 
 spring:
 * spring boot
@@ -26,14 +22,21 @@ docs:
 db:
 * mongo (atlas cloud)
 * mysql
+* oracle
+* neo4j
+* cassandra
 
 searching:
 * elasticsearch
+* solr
 * kibana
 
 queues:
 * rabbitMQ
+* ActiveMQ
 
+monitoring:
+* Prometheus + Grafana
 
 other:
 * quertz
